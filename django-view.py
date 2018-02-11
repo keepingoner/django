@@ -30,3 +30,27 @@ handler400覆盖了bad_request()视图：
 
 handler400 = 'mysite.views.my_custom_bad_request_view'
 </p>
+
+
+
+"""
+render()
+
+调用 loader.render_to_string()
+
+def render_to_string(template_name, context=None, request=None, using=None):
+    """
+    Loads a template and renders it with a context. Returns a string.
+
+    template_name may be a string or a list of strings.
+    """
+    if isinstance(template_name, (list, tuple)):
+        template = select_template(template_name, using=using)
+    else:
+        template = get_template(template_name, using=using)
+    return template.render(context, request)
+
+
+"""
+
+
